@@ -82,7 +82,7 @@ export class JogadorCriarComponent implements OnInit {
       atributos: this.atributos
     }
 
-    console.log(novoJogador);
+    //console.log(novoJogador);
     this._jogadorService.setJogador(novoJogador);
 
   } 
