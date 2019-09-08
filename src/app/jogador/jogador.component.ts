@@ -14,6 +14,7 @@ export class JogadorComponent implements OnInit {
 
   ngOnInit() {
     this.jogador = this._jogadorService.getJogador();
+    console.log(this.jogador);
   }
 
 }
