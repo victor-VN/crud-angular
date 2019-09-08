@@ -1,1 +1,61 @@
-<p>jogador-criar works!</p>
+<div class="mt-5 container">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <div class="form-group">
+              <label for="">Nome</label>
+              <input type="text" class="form-control mb-4" [(ngModel)]="nome">
+
+              <label for=""></label>
+              <select name="" id="anoNascimento" class="custom-select mb-5" [(ngModel)]="idade">
+                  <option value="">Ano de Nascimento...</option>                  
+                </select>                  
+
+              <select name="" id="" class="custom-select mb-5" [(ngModel)]="nacionalidade">
+                  <option value="">Nacionalidade...</option>
+                  <option value="Argentino">Argentina</option>
+                  <option value="Brasileiro">Brasil</option>
+                  <option value="Colombiano">Colombia</option>
+                  <option value="Venezuelano">Venezuela</option>
+                </select>
+
+              <select name="" id="" class="custom-select mb-5" [(ngModel)]="posicaoid">
+                <option value="0">Posição...</option>
+                <option value="0">Goleiro</option>
+                <option value="1">Defensor</option>
+                <option value="2">Meio-Campista</option>
+                <option value="3">Atacante</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-1"></div>
+
+          <div class="col-12 col-md-3">
+              <label for="customRange1">{{ posicao[posicaoid].atributo1 }}</label> <label for="" class="float-right">{{ atributos[0] }}</label>
+              <input type="range" class="custom-range mb-4" id="" [(ngModel)]="atributos[0]"> 
+
+              <label for="">{{ posicao[posicaoid].atributo2 }}</label> <label for="" class="float-right">{{ atributos[1] }}</label>
+              <input type="range" class="custom-range mb-4" id="" [(ngModel)]="atributos[1]">
+
+              <label for="">{{ posicao[posicaoid].atributo3 }}</label> <label for="" class="float-right">{{ atributos[2] }}</label>
+              <input type="range" class="custom-range mb-4" id="" [(ngModel)]="atributos[2]">
+
+              <label for="">{{ posicao[posicaoid].atributo4 }}</label> <label for="" class="float-right">{{ atributos[3] }}</label>
+              <input type="range" class="custom-range mb-4" id="" [(ngModel)]="atributos[3]">
+
+              <label for="">{{ posicao[posicaoid].atributo5 }}</label> <label for="" class="float-right">{{ atributos[4] }}</label>
+              <input type="range" class="custom-range mb-4" id="" [(ngModel)]="atributos[4]">
+
+              <label for="">{{ posicao[posicaoid].atributo6 }}</label> <label for="" class="float-right">{{ atributos[5] }}</label>
+              <input type="range" class="custom-range mb-4" id="" [(ngModel)]="atributos[5]">
+          </div>
+
+          <div class="col-12 col-md-1"></div>
+
+          <div class="col-12 col-md-3">
+                <button class="btn btn-danger col">Cancelar</button>
+              <button class="btn btn-success col mt-3" (click)="criarJogador()">Salvar</button>
+          </div>
+          
+        </div>
+      </div>

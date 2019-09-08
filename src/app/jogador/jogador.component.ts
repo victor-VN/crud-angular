@@ -1,3 +1,4 @@
+import { JogadorService } from './jogador.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JogadorComponent implements OnInit {
 
-  constructor() { }
+  public jogador = [];
+
+  constructor(private _jogadorService: JogadorService) { }
 
   ngOnInit() {
+    this.jogador = this._jogadorService.getJogador();
   }
 
 }
