@@ -1,1 +1,41 @@
-<p>jogador-lista works!</p>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <nav aria-label="breadcrumb">                    
+          <ol class="breadcrumb" style="background-color: #ccd6c9">
+            <li class="ml-5 bread-item mt-md-0 mt-3" tabindex="0">Goleiros</li>
+            <li class="ml-5 bread-item mt-md-0 mt-3" tabindex="0">Defensores</li>
+            <li class="ml-5 bread-item mt-md-0 mt-3" tabindex="0">Meio-Campistas</li>
+            <li class="ml-5 bread-item  mt-md-0 mt-3 mb-md-0 mb-3" tabindex="0">Atacantes</li>                    
+          </ol>                  
+          
+        </nav>
+      </div>              
+    </div>
+
+
+    <div class="row">
+      <div class="col-12 mb-5">
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Idade</th>
+                  <th scope="col">Nacionalidade</th>
+                  <th scope="col">Posição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="jogador-item" *ngFor="let jogador of jogadores; let i = index">
+                  <th scope="row">{{ i+1 }}</th>
+                  <td>{{ jogador.nome }}</td>
+                  <td>{{ jogador.idade }}</td>
+                  <td>{{ jogador.nacionalidade }}</td>
+                  <td>{{ jogador.posicao }}</td>
+                </tr>                
+              </tbody>
+            </table>
+      </div>
+    </div>
+  </div>
