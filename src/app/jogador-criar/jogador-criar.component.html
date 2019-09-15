@@ -1,30 +1,32 @@
 <div class="mt-5 container">
         <div class="row">
           <div class="col-12 col-md-3">
-            <div class="form-group">
-              <label for="">Nome</label>
-              <input type="text" class="form-control mb-4" [(ngModel)]="nome">
-
-              <label for=""></label>
-              <select name="" id="anoNascimento" class="custom-select mb-5" [(ngModel)]="idade">
+            <div class="form-group">              
+              <input type="text" class="valid form-control" #nm placeholder="Nome" (blur)="validaFormulario()">
+              <label class="mb-3 mt-1 ml-2 feedback">Preencha o nome do jogador</label>
+              
+              <select name="" id="anoNascimento" class="valid custom-select" #age (click)="validaFormulario()">
                   <option value="">Ano de Nascimento...</option>                  
-                </select>                  
+                </select>      
+                <label class="mb-3 mt-1 ml-2 feedback">Escolha o ano de nascimento do jogador</label>            
 
-              <select name="" id="" class="custom-select mb-5" [(ngModel)]="nacionalidade">
-                  <option value="">Nacionalidade...</option>
+              <select name="" id="" class="valid custom-select" #nac (click)="validaFormulario()">
+                  <option value="" selected>Nacionalidade...</option>
                   <option value="Argentino">Argentina</option>
                   <option value="Brasileiro">Brasil</option>
                   <option value="Colombiano">Colombia</option>
                   <option value="Venezuelano">Venezuela</option>
                 </select>
+                <label class="mb-3 mt-1 ml-2 feedback">Escolha a nacionalidade do jogador</label>
 
-              <select name="" id="" class="custom-select mb-5" [(ngModel)]="posicaoid">
-                <option value="0">Posição...</option>
+              <select name="" id="" class="valid custom-select" [(ngModel)]="posicaoid" (click)="validaFormulario()">
+                <option value="">Posição...</option>
                 <option value="0">Goleiro</option>
                 <option value="1">Defensor</option>
                 <option value="2">Meio-Campista</option>
                 <option value="3">Atacante</option>
               </select>
+              <label class="mb-3 mt-1 ml-2 feedback">Escolha a posição do jogador</label>
             </div>
           </div>
 
@@ -54,7 +56,7 @@
 
           <div class="col-12 col-md-3">
                 <button class="btn btn-danger col">Cancelar</button>
-              <button class="btn btn-success col mt-3" (click)="criarJogador()">Salvar</button>
+              <button class="btn btn-success col mt-3" (click)="criarJogador(nm.value, age.value, nac.value)">Salvar</button>
           </div>
           
         </div>
