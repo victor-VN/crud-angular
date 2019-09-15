@@ -1,5 +1,5 @@
 import { JogadorService } from './jogador.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-jogador',
@@ -8,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JogadorComponent implements OnInit {
 
-  public jogador = [];
+  public jogador = [];  
+  @Input() id = 0;
 
   constructor(private _jogadorService: JogadorService) { }
 
   ngOnInit() {
-    this.jogador = this._jogadorService.getJogador();
-    console.log(this.jogador);
+    this.jogador = this._jogadorService.getJogador();        
+    //console.log(this.jogador);    
   }
-
 }

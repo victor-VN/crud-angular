@@ -1,5 +1,5 @@
 import { JogadorService } from './../jogador/jogador.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-jogador-criar',
@@ -8,10 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JogadorCriarComponent implements OnInit {
 
-  
-  public nome;
-  public idade;
-  public nacionalidade;
   public posicaoid: number = 0;
   public atributos = [50, 50, 50, 50, 50, 50];
   
@@ -72,21 +68,24 @@ export class JogadorCriarComponent implements OnInit {
 
   }
 
-  criarJogador(){ 
-
-    var novoJogador = {
-      nome: this.nome, 
-      idade: (2019 - this.idade), 
-      nacionalidade: this.nacionalidade, 
-      posicao: this.posicao[this.posicaoid].posicao,      
-      atributos: this.atributos
+  criarJogador(nm, age, nac){  
+    
+    if(nm == "" || age == "" || nac == "" || this.posicaoid == 0)
+    {
+      alert("preencha todos os campos");
     }
-
-    //console.log(novoJogador);
-    this._jogadorService.setJogador(novoJogador);
-
-  } 
-  
+    else
+    {
+      var novoJogador = {
+        nome: nm, 
+        idade: (2019 - age), 
+        nacionalidade: nac, 
+        posicao: this.posicao[this.posicaoid].posicao,      
+        atributos: this.atributos
+      }
+      this._jogadorService.setJogador(novoJogador);         
+    }   
+  }  
 }
 
 

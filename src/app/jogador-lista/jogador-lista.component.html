@@ -15,7 +15,7 @@
 
 
     <div class="row">
-      <div class="col-12 mb-5">
+      <div class="col-6 mb-5">
           <table class="table table-striped">
               <thead>
                 <tr>
@@ -27,15 +27,22 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="jogador-item" *ngFor="let jogador of jogadores; let i = index">
+                <tr class="jogador-item" #plInfo *ngFor="let jogador of jogadores; let i = index" (click)="playerInfo(plInfo)">
                   <th scope="row">{{ i+1 }}</th>
                   <td>{{ jogador.nome }}</td>
                   <td>{{ jogador.idade }}</td>
                   <td>{{ jogador.nacionalidade }}</td>
-                  <td>{{ jogador.posicao }}</td>
-                </tr>                
+                  <td>{{ jogador.posicao }}</td>                  
+                </tr>              
               </tbody>
             </table>
       </div>
+      <div class="col-12 col-md-6">
+          <app-jogador [id]="playerID"></app-jogador>
+      </div> 
+
+      
+      
+      
     </div>
   </div>
