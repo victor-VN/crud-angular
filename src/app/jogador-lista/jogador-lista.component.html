@@ -1,20 +1,5 @@
 <div class="container mt-5" style="margin-bottom: 15%;">
-    <div class="row">
-      <div class="col-12">
-        <nav aria-label="breadcrumb">                    
-          <ol class="breadcrumb" style="background-color: #ccd6c9">
-            <li class="ml-5 bread-item mt-md-0 mt-3" tabindex="0">Goleiros</li>
-            <li class="ml-5 bread-item mt-md-0 mt-3" tabindex="0">Defensores</li>
-            <li class="ml-5 bread-item mt-md-0 mt-3" tabindex="0">Meio-Campistas</li>
-            <li class="ml-5 bread-item  mt-md-0 mt-3 mb-md-0 mb-3" tabindex="0">Atacantes</li>                    
-          </ol>                  
-          
-        </nav>
-      </div>              
-    </div>
-
-
-    <div class="row">
+     <div class="row">
       <div class="col-6 mb-5">
           <table class="table table-striped">
               <thead>
@@ -27,12 +12,27 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="jogador-item" #plInfo *ngFor="let jogador of jogadores; let i = index" (click)="playerInfo(plInfo)">
+                <tr class="jogador-item choose-container" #plInfo *ngFor="let jogador of jogadores; let i = index" (click)="playerInfo(plInfo)">
                   <th scope="row">{{ i+1 }}</th>
                   <td>{{ jogador.nome }}</td>
                   <td>{{ jogador.idade }}</td>
                   <td>{{ jogador.nacionalidade }}</td>
-                  <td>{{ jogador.posicao }}</td>                  
+                  <td>{{ jogador.posicao }}</td> 
+                  
+                  <div class="choose-panel">
+                      <div class="row">
+                        <div class="col-5">
+                          <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">                            
+                            <i class="far fa-edit"></i>
+                          </button>
+                        </div>
+                        <div class="col-5">
+                          <button class="btn btn-danger">
+                              <i class="fas fa-times"></i>
+                          </button>
+                        </div>
+                      </div>
+                  </div>
                 </tr>              
               </tbody>
             </table>
@@ -42,7 +42,58 @@
       </div> 
 
       
-      
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="form-group">
+                <div class="container">
+                  <div class="row mt-3">
+                      <div class="col-4 mt-5">
+                        <div class="ml-2" style="border-radius: 5px; background-color: royalblue; height: 200px; width: 200px;"></div>
+                      </div>
+                      <div class="col-6">
+                        <div class="row">
+                          <label for=""><strong> Nome:</strong></label>
+                          <input type="text" value="{{ jogadores[playerID].nome }}" class="form-control" #nm>
+                        </div>
+
+                        <div class="row mt-3">
+                            <label for=""><strong> Ano de nascimento:</strong></label>
+                            <select name="" id="anoNascimento" class="valid custom-select" #age>
+                                <option value="{{ 2019 - jogadores[playerID].idade }}">Ano de Nascimento...</option>                  
+                              </select>      
+                              <label class="mt-1 ml-2 feedback">Escolha o ano de nascimento do jogador</label>
+                        </div>
+
+                        <div class="row mt-2">
+                            <label for=""><strong> Nacionalidade:</strong></label>
+                            <select name="" id="" class="valid custom-select" #nac (click)="validaFormulario()">
+                                <option value="{{ jogadores[playerID].nacionalidade }}" selected>Nacionalidade...</option>
+                                <option value="Argentino">Argentina</option>
+                                <option value="Brasileiro">Brasil</option>
+                                <option value="Colombiano">Colombia</option>
+                                <option value="Venezuelano">Venezuela</option>
+                              </select>
+                              <label class="ml-2 feedback">Escolha a nacionalidade do jogador</label>
+                        </div>
+
+                        <div class="row mt-2">
+                          <div class="col-3">
+                            <button class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                          </div>
+
+                          <div class="col-3">
+                              <button class="btn btn-success" (click)="editarJogador(nm.value, age.value, nac.value)" data-dismiss="modal">Salvar</button>
+                            </div>
+                        </div>
+                        
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       
     </div>
   </div>
