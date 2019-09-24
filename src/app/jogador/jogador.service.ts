@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JogadorService {
+
+  static emitirJogador = new EventEmitter<any>();
   
   private jogador = [];
 
@@ -35,6 +37,23 @@ export class JogadorService {
     //jogadorObj = {jogadores: this.jogador};
     //jogadorJSON = JSON.stringify(jogadorObj);
     //localStorage.setItem("jogadoresSaveJSON", jogadorJSON);
+  }
+
+  editarJogador(id, newInfo){   
+    
+    var jogadorJSON, jogadorObj, jogadorText;
+    jogadorText = localStorage.getItem("jogadoresSaveJSON");
+    jogadorObj = JSON.parse(jogadorText);
+    
+    jogadorObj.jogadores[id].nome = newInfo.nome;
+    jogadorObj.jogadores[id].idade = newInfo.idade;
+    jogadorObj.jogadores[id].nacionalidade = newInfo.nacionalidade;
+
+    JogadorService.emitirJogador.emit(jogadorObj.jogadores);
+    
+    jogadorJSON = JSON.stringify(jogadorObj);
+    localStorage.setItem("jogadoresSaveJSON", jogadorJSON);
+    
   }
 
   getJogador(){
