@@ -81,7 +81,8 @@ export class JogadorCriarComponent implements OnInit {
         idade: (2019 - age), 
         nacionalidade: nac, 
         posicao: this.posicao[this.posicaoid].posicao,      
-        atributos: this.atributos
+        atributos: this.atributos,
+        status: "ativado"
       }
       this._jogadorService.setJogador(novoJogador);         
     }   
