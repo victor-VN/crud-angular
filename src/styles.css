@@ -35,10 +35,10 @@
     transform: scaleX(0.1);
   }
 
-.choose-container:hover .choose-panel{
+/*.choose-container:hover .choose-panel{
     opacity: 1;
     transform: scaleX(1);
-}
+}*/
 
 .feedback{
     font-size: 0.8em;

@@ -19,6 +19,8 @@ export class JogadorListaComponent implements OnInit {
       novoJogador => this.jogadores = novoJogador
     );
 
+    console.log(this.jogadores);
+
     var select = document.getElementById("anoNascimento");
 
     for(let i = 2003; i >= 1950; i--){
@@ -33,7 +35,7 @@ export class JogadorListaComponent implements OnInit {
   playerInfo(player)
   {    
     this.playerID = (parseInt((<HTMLInputElement>player).firstChild.textContent, 10) - 1);
-    console.log(this.playerID)
+    //console.log(this.playerID);
     var card = document.getElementById("card-jogador");    
     card.style.animation = 'none';
     card.offsetHeight; /* trigger reflow */
@@ -52,6 +54,11 @@ export class JogadorListaComponent implements OnInit {
     }
 
     this._jogadorService.editarJogador(this.playerID, newInfo);
+  }
+
+  removerJogador(player){    
+    var id = (parseInt((<HTMLInputElement>player).firstChild.textContent, 10) - 1);    
+    this.jogadores[id].status = "desativado";
   }
 
 }
