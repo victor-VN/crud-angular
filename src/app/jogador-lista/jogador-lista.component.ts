@@ -1,5 +1,5 @@
 import { JogadorService } from './../jogador/jogador.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-jogador-lista',
@@ -10,6 +10,7 @@ export class JogadorListaComponent implements OnInit {
 
   jogadores = [];  
   playerID = 0;
+  static emitirPlayerID = new EventEmitter<any>();
 
   constructor(private _jogadorService: JogadorService) { }
 
@@ -40,6 +41,7 @@ export class JogadorListaComponent implements OnInit {
     card.style.animation = 'none';
     card.offsetHeight; /* trigger reflow */
     card.style.animation = null; 
+    JogadorListaComponent.emitirPlayerID.emit(this.playerID);
   }
 
   editarJogador(nm, age, nac){    
@@ -59,6 +61,7 @@ export class JogadorListaComponent implements OnInit {
   removerJogador(player){    
     var id = (parseInt((<HTMLInputElement>player).firstChild.textContent, 10) - 1);    
     this.jogadores[id].status = "desativado";
+    this._jogadorService.removerJogador(id);
   }
 
 }

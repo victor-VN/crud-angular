@@ -56,6 +56,18 @@ export class JogadorService {
     
   }
 
+  removerJogador(playerId)
+  {
+    var jogadorJSON, jogadorObj, jogadorText;
+    jogadorText = localStorage.getItem("jogadoresSaveJSON");
+    jogadorObj = JSON.parse(jogadorText);    
+        
+    jogadorObj.jogadores[playerId].status = "desativado";
+    
+    jogadorJSON = JSON.stringify(jogadorObj);
+    localStorage.setItem("jogadoresSaveJSON", jogadorJSON);
+  }
+
   getJogador(){
     
     var jogadorText, jogadorObj;

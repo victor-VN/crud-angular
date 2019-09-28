@@ -68,10 +68,10 @@
                             <select name="" id="anoNascimento" class="valid custom-select" #age>
                                 <option value="{{ 2019 - jogadores[playerID].idade }}">Ano de Nascimento...</option>                  
                               </select>      
-                              <label class="mt-1 ml-2 feedback">Escolha o ano de nascimento do jogador</label>
+                              
                         </div>
 
-                        <div class="row mt-2">
+                        <div class="row mt-4 mb-3">
                             <label for=""><strong> Nacionalidade:</strong></label>
                             <select name="" id="" class="valid custom-select" #nac (click)="validaFormulario()">
                                 <option value="{{ jogadores[playerID].nacionalidade }}" selected>Nacionalidade...</option>
@@ -80,7 +80,7 @@
                                 <option value="Colombiano">Colombia</option>
                                 <option value="Venezuelano">Venezuela</option>
                               </select>
-                              <label class="ml-2 feedback">Escolha a nacionalidade do jogador</label>
+                              
                         </div>
 
                         <div class="row mt-2">
