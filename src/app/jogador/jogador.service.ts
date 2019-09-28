@@ -14,7 +14,7 @@ export class JogadorService {
   
 
   setJogador(novoJogador){
-    this.jogador.push(novoJogador);
+    this.jogador.unshift(novoJogador);
     //console.log(this.jogador);
     var jogadorJSON, jogadorObj, jogadorText;
 
@@ -29,7 +29,7 @@ export class JogadorService {
       localStorage.setItem("jogadoresSaveJSON", jogadorJSON);  
     } else {
 
-      jogadorObj.jogadores.push(novoJogador)
+      jogadorObj.jogadores.unshift(novoJogador)
       console.log(jogadorObj.jogadores);
       jogadorJSON = JSON.stringify(jogadorObj);
       localStorage.setItem("jogadoresSaveJSON", jogadorJSON);
@@ -61,7 +61,7 @@ export class JogadorService {
     var jogadorJSON, jogadorObj, jogadorText;
     jogadorText = localStorage.getItem("jogadoresSaveJSON");
     jogadorObj = JSON.parse(jogadorText);    
-        
+
     jogadorObj.jogadores[playerId].status = "desativado";
     
     jogadorJSON = JSON.stringify(jogadorObj);
