@@ -12,7 +12,7 @@ Abra o terminal (ou **cmd** no Windows) e acesse o diretório que você extraiu:
 
 Dentro do diretório rode o comando: **ng serve**
 
-No navegador, acesse `http://localhost:4200/`
+No navegador, acesse `http://localhost:4200/` <br><br><br><br>
 
 
 
