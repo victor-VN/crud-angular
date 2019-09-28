@@ -12,6 +12,13 @@
     transition: 0.6s;
 }
 
+footer{
+    padding: 80px;
+    background-color: #305c3a;
+    margin-top: 400px;
+    color: #b0cfb7;
+}
+
 .choose-container{
     position: relative; 
     
@@ -43,8 +50,9 @@
 .feedback{
     font-size: 0.8em;
     color: red;
-    visibility: hidden;
-
+    visibility: visible;
+    transition: 0.4s;
+    
 }
 
 /* ===== ELEMENT SLIDE ON APPEAR - LEFT TO RIGHT =====*/

@@ -68,11 +68,11 @@ export class JogadorCriarComponent implements OnInit {
 
   }
 
-  criarJogador(nm, age, nac){  
-    
-    if(nm == "" || age == "" || nac == "" || this.posicaoid == 0)
+  criarJogador(nm, age, nac){      
+
+    if(nm == "" || age == "" || nac == "")
     {
-      alert("preencha todos os campos");
+      alert('Preencha os campos obrigatórios');
     }
     else
     {
@@ -84,9 +84,56 @@ export class JogadorCriarComponent implements OnInit {
         atributos: this.atributos,
         status: "ativado"
       }
-      this._jogadorService.setJogador(novoJogador);         
+      this._jogadorService.setJogador(novoJogador);  
+      alert('Novo Jogador criado com sucesso!');       
     }   
-  }  
+  }
+  
+  validaFormulario()
+  {
+    var formField = document.getElementsByClassName('valid');
+    var feedback = document.getElementsByClassName('feedback');
+
+    for (let i = 0; i <= formField.length; i++)
+    {      
+      if((<HTMLInputElement>formField[i]).value == ""){
+        (<HTMLInputElement>formField[i]).style.borderColor = "red";
+        (<HTMLInputElement>feedback[i]).style.color = "red";
+        (<HTMLInputElement>feedback[i]).style.fontWeight = "normal";
+        feedback[i].innerHTML = "Campo obrigatório *";
+      }  
+      else{        
+        (<HTMLInputElement>formField[i]).style.borderColor = "green";
+        (<HTMLInputElement>feedback[i]).style.color = "green";
+        (<HTMLInputElement>feedback[i]).style.fontWeight = "normal";
+        feedback[i].innerHTML = "Ok!";
+      }      
+    }
+  }
+
+  limparFormulario()
+  {
+    var formField = document.getElementsByClassName('valid');
+    var feedback = document.getElementsByClassName('feedback');       
+    
+    for(let i = 0; i <= this.atributos.length; i++)
+    {
+      this.atributos = [50, 50, 50, 50, 50, 50];
+  
+      console.log(this.atributos[i]);
+    }
+
+    for (let i = 0; i <= formField.length; i++)
+    {  
+      (<HTMLInputElement>formField[i]).value = '';        
+      (<HTMLInputElement>formField[i]).style.borderColor = "red";
+      (<HTMLInputElement>feedback[i]).style.color = "red";
+      (<HTMLInputElement>feedback[i]).style.fontWeight = "normal";      
+        feedback[i].innerHTML = "Campo obrigatório *";       
+    }    
+
+    
+  }
 }
 
 
