@@ -59,11 +59,31 @@ export class JogadorComponent implements OnInit {
   ngOnInit() {
     this.atributoText = this.posicao[this.id];
     this.jogador = this._jogadorService.getJogador();        
+    
+    JogadorService.emitirJogador.subscribe(
+      player => this.jogador = player
+    );
     //console.log(this.jogador);   
+    //console.log(this.jogador.length);    
     
     JogadorListaComponent.emitirPlayerID.subscribe(
       playerId => {
-        this.atributoText = this.posicao[playerId];
+        switch(this.jogador[playerId].posicao)
+        {
+          case "Goleiro":
+            this.atributoText = this.posicao[0];
+            break;
+          case "Defensor":
+            this.atributoText = this.posicao[1];
+            break;
+          case "Meio-Campista":
+            this.atributoText = this.posicao[2];
+            break;
+          case "Atacante":
+            this.atributoText = this.posicao[3];
+            break;
+        }
+        
       }
     );
   }

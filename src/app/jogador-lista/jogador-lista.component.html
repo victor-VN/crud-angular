@@ -4,8 +4,7 @@
       <div class="col-12 col-md-5 mb-5">
           <table class="table table-striped">
               <thead>
-                <tr>
-                  <th scope="col">#</th>
+                <tr>                  
                   <th scope="col">Nome</th>
                   <th scope="col">Idade</th>
                   <th scope="col">Nacionalidade</th>
@@ -18,13 +17,11 @@
                 *ngFor="let jogador of jogadores; let i = index" 
                 (click)="playerInfo(plInfo)"
                 [style.display]="jogador.status == 'ativado' ? 'normal' : 'none'">
-                  <th scope="row">{{ i+1 }}</th>
+                  <th scope="row" style="display: none">{{ i+1 }}</th>
                   <td>{{ jogador.nome }}</td>
                   <td>{{ jogador.idade }}</td>
                   <td>{{ jogador.nacionalidade }}</td>
-                  <td>{{ jogador.posicao }}</td> 
-                  
-                  
+                  <td>{{ jogador.posicao }}</td>              
 
                   <div class="row">
                     <div class="col-5">
