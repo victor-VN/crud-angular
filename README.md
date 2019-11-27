@@ -11,6 +11,8 @@ Este projeto foi criado com [Angular CLI](https://github.com/angular/angular-cli
 
 ## Como rodar:
 
+- Acesse o projeto através do link https://victor-vn.github.io/crud-angular/ ou
+
 Instale na sua máquina o [Node.js](https://nodejs.org/en/) e o [Angular CLI](https://cli.angular.io/)
 
 Faça download do diretório master (ou clone o diretório) e extraia o arquivo.
@@ -34,6 +36,7 @@ The goal of this project it was just for learn the basics about the framework fu
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
 
 ## How to run:
+- See the project on https://victor-vn.github.io/crud-angular/ or
 
 On your computer install [Node.js](https://nodejs.org/en/) and [Angular CLI](https://cli.angular.io/)
 
